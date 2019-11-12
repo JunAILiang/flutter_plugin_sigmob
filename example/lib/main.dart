@@ -58,19 +58,19 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               RaisedButton(
                 onPressed: () {
-                  FlutterPluginSigmob.init("2111", "00e1435af22b5ab0");
+                  FlutterPluginSigmob.init("2112", "34aa76669c7379f9");
                 },
                 child: Text("初始化"),
               ),
               RaisedButton(
                 onPressed: () {
-                   sigmob.loadVideo("e4fa8ca7514");
+                   sigmob.loadVideo("e4fac6a412b");
                 },
                 child: Text("加载"),
               ),
               RaisedButton(
                 onPressed: () {
-                  sigmob.showVideo("e4fa8ca7514");
+                  sigmob.showVideo("e4fac6a412b");
                 },
                 child: Text("显示"),
               ),
