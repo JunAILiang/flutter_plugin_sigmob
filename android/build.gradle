@@ -42,4 +42,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //AndroidX
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation files('libs/miit_mdid_1.0.10.aar')
 }

@@ -29,8 +29,8 @@ abstract class SigmobEventHandler {
         _listener(SigmobEvents.didError, null);
         break;
       case 'playError':
-      _listener(SigmobEvents.playError, null);
-      break;
+        _listener(SigmobEvents.playError, null);
+        break;
       case 'closed':
         _listener(SigmobEvents.closed, null);
         break;
