@@ -35,7 +35,7 @@
 
 
         <provider
-            android:name="com.sigmob.sdk.SigmobFileProvider"
+            android:name="com.example.flutter_plugin_sigmob.SigmobFileProvider"
             android:authorities="${applicationId}.sigprovider"
             android:exported="false"
             android:grantUriPermissions="true">
