@@ -1,8 +1,12 @@
 package com.example.flutter_plugin_sigmob;
 
 import android.app.Activity;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.sigmob.windad.Splash.WindSplashAD;
+import com.sigmob.windad.Splash.WindSplashADListener;
+import com.sigmob.windad.Splash.WindSplashAdRequest;
 import com.sigmob.windad.WindAdError;
 import com.sigmob.windad.WindAdOptions;
 import com.sigmob.windad.WindAds;
@@ -164,5 +168,33 @@ public class AdUtil {
         final WindRewardedVideoAd windRewardedVideoAd = WindRewardedVideoAd.sharedInstance();
         WindVideoAdRequest request = new WindVideoAdRequest(pid,"",true,null);
         windRewardedVideoAd.show(mContext, request);
+    }
+
+    public static void loadAdSplashAndShow(String pid) {
+        WindSplashAdRequest splashAdRequest = new WindSplashAdRequest(pid, "",null);
+        splashAdRequest.setFetchDelay(3);
+        WindSplashAD mWindSplashAD = new WindSplashAD(mContext, null, splashAdRequest, new WindSplashADListener() {
+            @Override
+            public void onSplashAdSuccessPresentScreen() {
+//                Log.e("test","onSplashAdSuccessPresentScreen");
+            }
+
+            @Override
+            public void onSplashAdFailToPresent(WindAdError windAdError, String s) {
+//                Log.e("test","onSplashAdFailToPresent    " + s);
+//                Log.e("test","onSplashAdFailToPresent    " + windAdError.getErrorCode() + "   " + windAdError.getMessage());
+
+            }
+
+            @Override
+            public void onSplashAdClicked() {
+//                Log.e("test","onSplashAdClicked");
+            }
+
+            @Override
+            public void onSplashClosed() {
+//                Log.e("test","onSplashClosed");
+            }
+        });
     }
 }

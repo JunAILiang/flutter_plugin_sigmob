@@ -30,6 +30,8 @@ public class FlutterPluginSigmobPlugin implements MethodCallHandler {
       AdUtil.loadVideo((String) call.arguments);
     } else if (call.method.equals("showVideo")) {
       AdUtil.showVideo((String) call.arguments);
+    } else if (call.method.equals("loadAdSplashAndShow")) {
+      AdUtil.loadAdSplashAndShow((String) call.arguments);
     } else {
       result.notImplemented();
     }

@@ -37,6 +37,11 @@ class FlutterPluginSigmob extends SigmobEventHandler {
     _channel.invokeMethod('showVideo', placementId);
   }
 
+  /// 加载开屏广告
+  Future<void> loadAdSplashAndShow(String placementId) async {
+    _channel.invokeMethod("loadAdSplashAndShow", placementId);
+  }
+
 
   static Future<String> get platformVersion async {
     final String version = await _channel.invokeMethod('getPlatformVersion');

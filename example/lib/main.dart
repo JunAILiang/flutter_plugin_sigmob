@@ -41,9 +41,15 @@ class _MyAppState extends State<MyApp> {
       _platformVersion = platformVersion;
     });
 
+    await FlutterPluginSigmob.init("2112", "34aa76669c7379f9");
+
+
     sigmob = FlutterPluginSigmob(listener: (SigmobEvents events, Map<String, dynamic> args) {
       print("我走进了回调" + events.toString());
     });
+
+    sigmob.loadAdSplashAndShow("e54888d13df");
+
   }
 
   @override
@@ -73,6 +79,12 @@ class _MyAppState extends State<MyApp> {
                   sigmob.showVideo("e4fac6a412b");
                 },
                 child: Text("显示"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  sigmob.loadAdSplashAndShow("e54888d13df");
+                },
+                child: Text("加载开屏广告"),
               ),
             ],
           )

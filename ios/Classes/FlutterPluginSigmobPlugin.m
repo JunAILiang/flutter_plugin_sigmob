@@ -5,6 +5,9 @@
 
 /** channel **/
 @property (nonatomic, strong) FlutterMethodChannel *channel;
+/** splashAd */
+@property (nonatomic,strong) WindSplashAd *splashAd;
+
 
 @end
 
@@ -38,6 +41,8 @@ static FlutterPluginSigmobPlugin *instance = nil;
   if ([@"getPlatformVersion" isEqualToString:call.method]) {
     result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
   } else if ([@"init" isEqualToString:call.method]) {
+      NSLog(@"init");
+      [[WindAds sharedAds] setDebugEnable:true];
       NSString *appId = [call.arguments firstObject];
       NSString *apiKey = [call.arguments lastObject];
       WindAdOptions *options = [WindAdOptions options];
@@ -60,6 +65,11 @@ static FlutterPluginSigmobPlugin *instance = nil;
   } else if ([@"isReady" isEqualToString:call.method]) {
       BOOL isReady = [[WindRewardedVideoAd sharedInstance] isReady:call.arguments];
       result(@(isReady));
+  } else if ([@"loadAdSplashAndShow" isEqualToString:call.method]) {
+      NSLog(@"loadAdSplashAndShow---%@", call.arguments);
+      self.splashAd = [[WindSplashAd alloc] initWithPlacementId:call.arguments];
+      self.splashAd.fetchDelay = 3;
+      [self.splashAd loadAdAndShow];
   } else {
     result(FlutterMethodNotImplemented);
   }
